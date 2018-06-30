@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace DatingAppAPI
 {
@@ -26,6 +27,7 @@ namespace DatingAppAPI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("Default")));
             services.AddTransient<IValueService, ValueService>();
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "Core API", Description = "Swagger Core API" }));
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -40,6 +42,8 @@ namespace DatingAppAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Core API"));
             }
             else
             {
@@ -50,6 +54,7 @@ namespace DatingAppAPI
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            
 
             app.UseMvc(routes =>
             {

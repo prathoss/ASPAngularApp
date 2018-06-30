@@ -26,5 +26,12 @@ namespace DatingAppAPI.Services
         {
             return await _context.Values.FirstOrDefaultAsync(x => x.Id == id);
         }
+
+        public async Task<Value> Create(Value value)
+        {
+            _context.Values.Add(value);
+            _context.SaveChanges();
+            return value;
+        }
     }
 }

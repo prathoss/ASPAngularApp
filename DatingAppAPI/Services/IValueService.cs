@@ -9,5 +9,6 @@ namespace DatingAppAPI.Services
     {
         Task<Value> GetByIdAsync(int id);
         Task<List<Value>> GetAllAsync();
+        Task<Value> Create(Value value);
     }
 }

@@ -198,6 +198,9 @@ UpgradeLog*.htm
 *.mdf
 *.ldf
 
+#SQLite database
+*.db
+
 # Business Intelligence projects
 *.rdl.data
 *.bim.layout
