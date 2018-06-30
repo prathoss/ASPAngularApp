@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DatingAppAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DatingAppAPI.Controllers
@@ -9,6 +10,14 @@ namespace DatingAppAPI.Controllers
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
+
+        IValueService _service;
+
+        public SampleDataController(IValueService service)
+        {
+            _service = service;
+        }
+
         private static string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
