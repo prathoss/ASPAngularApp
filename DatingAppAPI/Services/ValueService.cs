@@ -29,7 +29,7 @@ namespace DatingAppAPI.Services
 
         public async Task<Value> Create(Value value)
         {
-            _context.Values.Add(value);
+            await _context.Values.AddAsync(value);
             _context.SaveChanges();
             return value;
         }

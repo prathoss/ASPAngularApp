@@ -1,1 +1,16 @@
-﻿<div style="border: 1px solid red">value Component</div>
+<div style="border: 1px solid red">value Component</div>
+<p *ngIf="!values"><em>Loading...</em></p>
+<table class='table' *ngIf="values">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let value of values">
+      <td>{{value.id}}</td>
+      <td>{{value.name}}</td>
+    </tr>
+  </tbody>
+</table>

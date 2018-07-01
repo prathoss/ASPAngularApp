@@ -60,6 +60,7 @@ namespace DatingAppAPI
             
             //For two different projects, to have acces to comunicate, has to be after MVC
             //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
