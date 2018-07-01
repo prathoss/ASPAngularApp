@@ -29,6 +29,9 @@ namespace DatingAppAPI
             services.AddTransient<IValueService, ValueService>();
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "Core API", Description = "Swagger Core API" }));
 
+            
+            //services.AddCors();
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -55,7 +58,8 @@ namespace DatingAppAPI
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
             
-
+            //For two different projects, to have acces to comunicate, has to be after MVC
+            //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
