@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using DatingAppAPI.DTOs;
 using DatingAppAPI.Models;
 using DatingAppAPI.Repositories;
+using DatingAppAPI.StaticClasses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -52,7 +53,7 @@ namespace DatingAppAPI.Controllers
 
             //generate token
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("SecriteKeyForVerification");
+            var key = Keys.JwtSecurityKey;
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
