@@ -17,9 +17,10 @@ namespace DatingAppAPI.Repositories
             _context = context;
         }
 
-        public async Task<User> Login(string userName, string password)
+        public async Task<User> Login(string username, string password)
         {
-            User user = await _context.Users.FirstOrDefaultAsync(x => x.Name == userName);
+            username = username.ToLower();
+            User user = await _context.Users.FirstOrDefaultAsync(x => x.Name == username);
             if (user == null) return null;
 
             if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt)) return null;
