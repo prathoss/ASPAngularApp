@@ -1,4 +1,5 @@
 using DatingAppAPI.Data;
+using DatingAppAPI.Repositories;
 using DatingAppAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +28,7 @@ namespace DatingAppAPI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("Default")));
             services.AddTransient<IValueService, ValueService>();
+            services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "Core API", Description = "Swagger Core API" }));
 
             

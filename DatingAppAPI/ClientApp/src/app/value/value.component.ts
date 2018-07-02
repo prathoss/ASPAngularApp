@@ -10,7 +10,7 @@ export class ValueComponent {
   values: Value[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Value[]>(baseUrl + 'api/Values/GetValues').subscribe(result => { this.values = result }, error => console.error(error));
+    http.get<Value[]>(baseUrl + 'api/Values').subscribe(result => { this.values = result }, error => console.log(error));
   }
 
 }

@@ -20,7 +20,7 @@ namespace DatingAppAPI.Controllers
             _service = service;
         }
 
-        [HttpGet("{id}", Name ="GetValue")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
             Value value = await _service.GetByIdAsync(id);
@@ -28,7 +28,7 @@ namespace DatingAppAPI.Controllers
             return Ok(value);
         }
 
-        [HttpGet(Name = "GetValues")]
+        [HttpGet]
         public async Task<IActionResult> GetValues()
         {
             return Ok(await _service.GetAllAsync());
