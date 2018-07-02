@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-using DatingAppAPI.DTOs;
+﻿using DatingAppAPI.DTOs;
 using DatingAppAPI.Models;
 using DatingAppAPI.Repositories;
-using DatingAppAPI.StaticClasses;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DatingAppAPI.Controllers
 {
